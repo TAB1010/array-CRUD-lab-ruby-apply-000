@@ -33,3 +33,7 @@ end
 def retrieve_last_element_from_array(array)
   
 end
+ruby
+def create_an_empty_array
+  []
+end
