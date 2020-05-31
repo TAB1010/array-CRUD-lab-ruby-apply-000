@@ -48,6 +48,3 @@ describe 'Finding data' do
 
 
 end
-
-
-
