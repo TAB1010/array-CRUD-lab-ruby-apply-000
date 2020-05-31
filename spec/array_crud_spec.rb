@@ -1,50 +1,69 @@
-require 'spec_helper'
-require 'pry'
+require "spec_helper"
 
-describe 'Finding data' do
-
-  scale = [2,3,4,5]
-  scale_2 = [6,5,4,3]
-  hill = [1,2,3,4,5,4,3,2,1]
-  valley = [5,4,3,2,1,0,1,2,3,4,5]
-  zig_zag = [500,4,1000,5,250]
-
-  describe 'find_element_index(array, value_to_find)' do
-    it 'takes in an array and a value and returns the index of that value' do
-      expect(find_element_index(scale,2)).to eq(0)
-      expect(find_element_index(scale,4)).to eq(2)
-      expect(find_element_index(scale_2,5)).to eq(1)
-      expect(find_element_index(scale_2,6)).to eq(0)
-    end
-
-    it 'if the value is not found, returns nil' do
-      expect(find_element_index(hill,500)).to eq(nil)
-      expect(find_element_index(valley,500)).to eq(nil)
-      expect(find_element_index(zig_zag,400)).to eq(nil)
-    end
-
-
+describe "#create_an_empty_array" do
+  it "creates and returns and empty array" do
+    expect(create_an_empty_array).to eq([])
   end
+end
 
-  describe 'find_max_value(array)' do
-    it 'takes in an array of integers and returns the highest value integer' do
-      expect(find_max_value(scale)).to eq(5)
-      expect(find_max_value(scale_2)).to eq(6)
-      expect(find_max_value(hill)).to eq(5)
-      expect(find_max_value(valley)).to eq(5)
-      expect(find_max_value(zig_zag)).to eq(1000)
-    end
+describe "create_an_array" do
+  it "creates an array with four elements" do
+    expect(create_an_array).to be_a(Array)
+    expect(create_an_array.size).to eq(4)
   end
+end
 
-  describe 'find_min_value(array)' do
-    it 'takes in an array of integers and returns the lowest value integer' do
-      expect(find_min_value(scale)).to eq(2)
-      expect(find_min_value(scale_2)).to eq(3)
-      expect(find_min_value(hill)).to eq(1)
-      expect(find_min_value(valley)).to eq(0)
-      expect(find_min_value(zig_zag)).to eq(4)
-    end
+describe "add_element_to_end_of_array" do
+  it "takes arguments of an array and an element and adds that element to the end of the array" do
+    array = ["wow", "I", "am", "really", "learning"]
+    element = "arrays!"
+    expect(add_element_to_end_of_array(array, element).last).to eq("arrays!")
   end
+end
 
+describe "add_element_to_start_of_array" do
+  it "takes arguments of an array and an element and adds that element to the start of the array" do
+    array = ["I", "am", "really", "learning"]
+    element = "wow"
+    expect(add_element_to_start_of_array(array, element).first).to eq("wow")
+  end
+end
 
+describe "remove_element_from_end_of_array" do
+  it "takes in an argument of an array and removes the last element in the array" do
+    array = ["I", "am", "really", "learning", "arrays!"]
+    expect(remove_element_from_end_of_array(array)).to eq("arrays!")
+  end
+end
+
+describe "remove_element_from_start_of_array" do
+  it "takes in an argument of an array and removes the first element from the array" do
+    array = ["wow", "I", "am", "really", "learning", "arrays!"]
+    expect(remove_element_from_start_of_array(array)).to eq("wow")
+  end
+end
+
+describe "retrieve_element_from_index" do
+  it "takes in an argument of an array and an index number and returns the element stored at that index" do
+    array = ["wow", "I", "am", "really", "learning", "arrays!"]
+    index_number = 2
+    expect(retrieve_element_from_index(array, 2)).to eq("am")
+  end
+end
+
+describe "retrieve_first_element_from_array" do
+  it "takes in an argument of an array and returns the first element stored in the array" do
+    array = ["wow", "I", "am", "really", "learning", "arrays!"]
+    expect(retrieve_first_element_from_array(array)).to eq("wow")
+  end
+end
+
+describe "retrieve_last_element_from_array" do
+  it "takes in an argument of an array and returns the last element of that array" do
+    array = ["wow", "I", "am", "really", "learning", "arrays!"]
+    expect(retrieve_last_element_from_array(array)).to eq("arrays!")
+  end
+end
+def create_an_empty_array
+  []
 end
