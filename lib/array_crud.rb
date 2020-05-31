@@ -1,38 +1,18 @@
-def create_an_empty_array
-
-end
-
-def create_an_array
-
-end
-
-def add_element_to_end_of_array(array, element)
-
-end
-
-def add_element_to_start_of_array(array, element)
-
-end
-
-def remove_element_from_end_of_array(array)
-
-end
-
-def remove_element_from_start_of_array(array)
-
-end
-
-def retrieve_element_from_index(array, index_number)
-
-end
-
-def retrieve_first_element_from_array(array)
-
-end
-
-def retrieve_last_element_from_array(array)
-
-end
 def find_element_index(array, value_to_find)
   # Add your solution here
+  counter = 0
+  while array[counter] != array[value_to_find]
+  counter++
+
+  return array[value_to_find]
+end
+
+def find_max_value(array)
+  # Add your solution here
+  array.max
+end
+
+def find_min_value(array)
+  # Add your solution here
+  array.min
 end
